@@ -18,11 +18,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 # 추가
+from mysite import views
 # from polls import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('polls/',include('polls.urls')), # polls로 시작되는 것들은 polls.urls로 간다.
+    path('', views.HomeView.as_view(), name='home'), # 추가
+    path('books/',include('books.urls')),
     # 추가
 
     
